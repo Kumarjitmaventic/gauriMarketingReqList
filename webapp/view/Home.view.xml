@@ -169,16 +169,12 @@
             tableType="Table"
             useExportToExcel="true"
             beforeExport="onBeforeExport"
-            useVariantManagement="true"
-            useTablePersonalisation="true"
             header="Request"
-            showRowCount="true"
             persistencyKey="SmartTableAnalytical_Explored"
             enableAutoBinding="true"
+            useTablePersonalisation="false"
             class="sapUiResponsiveContentPadding"
-            enableAutoColumnWidth="false"
             beforeRebindTable="onBeforeRebind"
-            editTogglable="false"
         >
             <!-- layout data used to make the table growing but the filter bar fixed -->
 
@@ -215,7 +211,7 @@
                         <Text text="{path: 'Status', formatter: '.formatter.getStatusText'}" />
                         <Text text="{path: 'PermitType', formatter: '.formatter.getPermitTypeText'}" />
                         <Text text="{path: 'InitiatedDate', formatter: '.formatter.formatDate'}" />
-                    <!-- <Text text="{path: 'CreatedAt', formatter: '.formatter.formatDate'}" /> -->
+                    
                         </cells>
                         
                         

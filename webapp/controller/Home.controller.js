@@ -16,7 +16,9 @@ sap.ui.define(
                     const oFilterMdoel = oOwnComp.getModel("filterModel");
                     let oView = this.getView();
                     oView.setBusy(true);
+                    
                     let sUrl = "/UserSet('')";
+                    // Fetching the user role to determine visibility of filters
                     oModel.read(sUrl, {
                         success: function (oData) {
                             if (oData.Role === "Approver") {
@@ -30,19 +32,23 @@ sap.ui.define(
                         },
                     });
                 },
+                
                 onBeforeRebind(oEvent) {
                     const oStatusComboBox = this.byId("requestStatus");
                     const oPermitTypeComboBox = this.byId("permitType");
 
                     const sStatusKey = oStatusComboBox.getSelectedKey();
                     const sPermitTypeKey = oPermitTypeComboBox.getSelectedKey();
-
+                    
                     const oBindingParams = oEvent.getParameter("bindingParams");
+                    // Adding select parameters to the binding as we are manually setting the filters in
                     oBindingParams.parameters.select += ",InitiatedDate,Status,PermitType,RequestId";
 
                     const oModel = this.getView().getModel("filterModel");
                     const oData = oModel.getData();
                     const aData = Object.entries(oData);
+
+                    // loop through the filter data and adding filters to the binding parameters
 
                     aData.forEach((element) => {
                         if (element[1])
@@ -77,6 +83,12 @@ sap.ui.define(
                                     break;
                                 case "InitiatedDate":
                                     var dateRange = element[1].split(" - ");
+
+                                    /**
+                                     * Used for parsing the date and adjusting it to the local timezone
+                                     * @param {*} dateStr 
+                                     * @returns parsed date object
+                                     */
 
                                     function parseAndAdjustDate(dateStr) {
                                         var date = new Date(dateStr);
@@ -135,21 +147,11 @@ sap.ui.define(
                     // Clear existing filters if needed
                 },
 
-                _setComboBoxText(oEvent, propertyName) {
-                    const oModel = this.getView().getModel("filterModel");
-                    const combTxt =
-                        oEvent
-                            .getSource()
-                            .getSelectedItem()
-                            ?.getProperty("text") || "";
-                    oModel.setProperty("/" + propertyName + "", combTxt);
-                },
-                onSelectionChange(oEvent) {
-                    this._setComboBoxText(oEvent, "PermitType");
-                },
-                onStatusChange(oEvent) {
-                    this._setComboBoxText(oEvent, "Status");
-                },
+                
+                /**
+                 * Used to navigate to the marketing request details page
+                 * @param {*} oEvent current instance of the event
+                 */
 
                 onColumnListItemPress(oEvent) {
                     const sPath = oEvent
@@ -169,9 +171,7 @@ sap.ui.define(
                         params: {
                             RequestId: reqId,
                         },
-                    }).then(function (sHref) {
-                        // Place sHref somewhere in the DOM
-                    });
+                    })
                 },
             }
         );
