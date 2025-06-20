@@ -5,12 +5,12 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "marketingcampaignreqlist/zcrmktmarketingreqlist/model/models"
+        "zcrmktmarketingreqlist/marketingcampaignreqlist/model/models"
     ],
     function (UIComponent, Device, models) {
         "use strict";
 
-        return UIComponent.extend("marketingcampaignreqlist.zcrmktmarketingreqlist.Component", {
+        return UIComponent.extend("zcrmktmarketingreqlist.marketingcampaignreqlist.Component", {
             metadata: {
                 manifest: "json"
             },

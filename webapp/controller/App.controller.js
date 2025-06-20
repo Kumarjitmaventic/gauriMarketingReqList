@@ -5,7 +5,7 @@ sap.ui.define(
     function(BaseController) {
       "use strict";
   
-      return BaseController.extend("marketingcampaignreqlist.zcrmktmarketingreqlist.controller.App", {
+      return BaseController.extend("zcrmktmarketingreqlist.marketingcampaignreqlist.controller.App", {
         onInit: function() {
         }
       });

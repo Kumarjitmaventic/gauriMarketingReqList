@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: marketingcampaignreqlist.zcrmktmarketingreqlist
+  name: zcrmktmarketingreqlist.marketingcampaignreqlist
 type: application
 framework:
   name: SAPUI5
@@ -37,7 +37,7 @@ server:
       configuration:
         mountPath: /
         services:
-          - urlPath: //sap/opu/odata/sap/ZCRM_MKT_MARKETING_CAMPAIGN_SRV
+          - urlPath: /sap/opu/odata/sap/ZCRM_MKT_MARKETING_CAMPAIGN_SRV
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
