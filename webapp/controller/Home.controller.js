@@ -1,15 +1,12 @@
-sap.ui.define(
-    [
-        "sap/ui/core/mvc/Controller",
-        "marketingcampaignreqlist/zcrmktmarketingreqlist/utils/formatter",
-    ],
-    function (Controller, formatter) {
-        "use strict";
+sap.ui.define([
+    "sap/ui/core/mvc/Controller",
+    "zcrmktmarketingreqlist/marketingcampaignreqlist/utils/formatter",
+],
+function (Controller, formatter) {
+    "use strict";
 
-        return Controller.extend(
-            "marketingcampaignreqlist.zcrmktmarketingreqlist.controller.Home",
-            {
-                formatter: formatter,
+    return Controller.extend("zcrmktmarketingreqlist.marketingcampaignreqlist.controller.Home", {
+        formatter: formatter,
                 onInit: function () {
                     const oOwnComp = this.getOwnerComponent();
                     const oModel = oOwnComp.getModel();
@@ -21,10 +18,11 @@ sap.ui.define(
                     // Fetching the user role to determine visibility of filters
                     oModel.read(sUrl, {
                         success: function (oData) {
-                            if (oData.Role === "Approver") {
-                                oFilterMdoel.setProperty("/visible", true);
-                            } else if (oData.Role === "Marketing")
-                                oFilterMdoel.setProperty("/visible", false);
+                            if (oData.Role === "Approver" || oData.Role === "Viewer") {
+                                oFilterMdoel.setProperty("/mode", "Approver");
+                            }
+                            else
+                                oFilterMdoel.setProperty("/mode", "Requester");
                             oView.setBusy(false);
                         },
                         error: function (oError) {
@@ -33,6 +31,11 @@ sap.ui.define(
                     });
                 },
                 
+                  /**
+                 * @description Handles the binding parameter before binding the table
+                 * @param {
+                 * } oEvent 
+                 */
                 onBeforeRebind(oEvent) {
                     const oStatusComboBox = this.byId("requestStatus");
                     const oPermitTypeComboBox = this.byId("permitType");
@@ -58,7 +61,7 @@ sap.ui.define(
                                         new sap.ui.model.Filter(
                                             "Status",
                                             sap.ui.model.FilterOperator.EQ,
-                                            sStatusKey
+                                            element[1]
                                         )
                                     );
                                     break;
@@ -134,7 +137,7 @@ sap.ui.define(
                                         new sap.ui.model.Filter(
                                             "PermitType",
                                             sap.ui.model.FilterOperator.EQ,
-                                            sPermitTypeKey
+                                            element[1]
                                         )
                                     );
                                     break;
@@ -142,9 +145,6 @@ sap.ui.define(
                                     break;
                             }
                     });
-
-                    console.log("test");
-                    // Clear existing filters if needed
                 },
 
                 
@@ -166,14 +166,12 @@ sap.ui.define(
                     CrossApplicationNavigation.toExternal({
                         target: {
                             semanticObject: "ZMKTCAMP",
-                            action: "display",
+                            action: "create",
                         },
                         params: {
                             RequestId: reqId,
                         },
                     })
                 },
-            }
-        );
-    }
-);
+    });
+});

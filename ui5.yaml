@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: marketingcampaignreqlist.zcrmktmarketingreqlist
+  name: zcrmktmarketingreqlist.marketingcampaignreqlist
 type: application
 server:
   customMiddleware:

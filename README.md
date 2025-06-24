@@ -1,23 +1,23 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Wed Jun 04 2025 16:00:11 GMT+0530 (India Standard Time)|
+|**Generation Date and Time**<br>Tue Jun 17 2025 17:07:42 GMT+0530 (India Standard Time)|
 |**App Generator**<br>SAP Fiori Application Generator|
 |**App Generator Version**<br>1.17.5|
 |**Generation Platform**<br>Visual Studio Code|
 |**Template Used**<br>Basic V2|
 |**Service Type**<br>OData Url|
-|**Service URL**<br>http://10.10.1.30:8000//sap/opu/odata/sap/ZCRM_MKT_MARKETING_CAMPAIGN_SRV|
-|**Module Name**<br>zcr_mkt_marketing_req_list|
+|**Service URL**<br>http://10.10.1.30:8000/sap/opu/odata/sap/ZCRM_MKT_MARKETING_CAMPAIGN_SRV/|
+|**Module Name**<br>marketingcampaignreqlist|
 |**Application Title**<br>Marketing Campaign Request List|
-|**Namespace**<br>marketingcampaignreqlist|
+|**Namespace**<br>zcrmktmarketingreqlist|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.114.0|
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 
-## zcr_mkt_marketing_req_list
+## marketingcampaignreqlist
 
 An SAP Fiori application.
 

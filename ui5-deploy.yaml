@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: marketingcampaignreqlist.zcrmktmarketingreqlist
+  name: zcrmktmarketingreqlist.marketingcampaignreqlist
 type: application
 builder:
   resources:
@@ -14,10 +14,9 @@ builder:
       afterTask: generateCachebusterInfo
       configuration:
         target:
-          url: http://10.10.1.30:8000
-          client: '900'
+          url: http://10.10.1.30:8000/
         app:
-          name: ZREQUESTLIST
+          name: ZCRM_MKT_CAM
           package: ZCRM
           transport: E03K929018
         exclude:

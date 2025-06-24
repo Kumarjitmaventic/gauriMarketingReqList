@@ -14,7 +14,7 @@ sap.ui.define([
 			// start the app UI component
 			this.iStartMyUIComponent({
 				componentConfig: {
-					name: "marketingcampaignreqlist.zcrmktmarketingreqlist",
+					name: "zcrmktmarketingreqlist.marketingcampaignreqlist",
 					async: true
 				},
 				hash: oOptions.hash,

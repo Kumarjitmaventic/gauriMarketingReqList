@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"marketingcampaignreqlist/zcrmktmarketingreqlist/controller/Home.controller"
+	"zcrmktmarketingreqlist/marketingcampaignreqlist/controller/Home.controller"
 ], function (Controller) {
 	"use strict";
 
