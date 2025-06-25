@@ -85,7 +85,7 @@ function (Controller, formatter) {
                                     );
                                     break;
                                 case "InitiatedDate":
-                                    var dateRange = element[1].split(" - ");
+                                    const dateRange = element[1].split(" - ");
 
                                     /**
                                      * Used for parsing the date and adjusting it to the local timezone
@@ -94,8 +94,13 @@ function (Controller, formatter) {
                                      */
 
                                     function parseAndAdjustDate(dateStr) {
-                                        var date = new Date(dateStr);
+                                        const oFormatSettings = sap.ui.getCore().getConfiguration().getFormatSettings();
+                                        const sDatePattern = oFormatSettings.getDatePattern("short");
+                                        const oDateFormat = sap.ui.core.format.DateFormat.getInstance({ pattern: sDatePattern  });
+                                        const oParsedDate = oDateFormat.parse(dateStr);
+                                        const date= new Date(oParsedDate);
                                         date.setDate(date.getDate()); 
+                                        date.setHours(12, 0, 0, 0);
                                         return date;
                                     }
 
@@ -106,8 +111,6 @@ function (Controller, formatter) {
                                         dateRange[1]
                                     );
 
-                                    fromDate.setHours(0, 0, 0, 0);
-                                    toDate.setHours(23, 59, 59, 999);
 
                                     if (dateRange[0] === dateRange[1]) {
                                         oBindingParams.filters.push(new sap.ui.model.Filter("InitiatedDate", sap.ui.model.FilterOperator.EQ,toDate));

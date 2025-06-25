@@ -147,15 +147,6 @@
                     </smartFilterBar:customControl>
                 </smartFilterBar:ControlConfiguration>
             </smartFilterBar:controlConfiguration>
-            <!-- <smartFilterBar:filterGroupItems>
-                   <filterbar:FilterGroupItem groupName="A">
-                   <filterbar:control>
-                   </filterbar:control>
-                   </filterbar:FilterGroupItem>
-
-     
-
-    </smartFilterBar:filterGroupItems> -->
             <smartFilterBar:layoutData>
                 <FlexItemData shrinkFactor="0" />
             </smartFilterBar:layoutData>
@@ -197,9 +188,6 @@
                     <Column>
                         <Text text="Initated Date" />
                     </Column>
-                    <!-- <Column>
-                        <Text text="Created At" />
-                    </Column> -->
                 </columns>
                 <items>
                     <ColumnListItem
