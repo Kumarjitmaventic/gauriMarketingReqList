@@ -79,6 +79,10 @@
                                     text="Draft"
                                     enabled="{= ${filterModel>/mode} === 'Requester' }"
                                 />
+                                <core:Item
+                                    key="CFR"
+                                    text="Clarification Required"
+                                />
                                
                             </items>
                         </ComboBox>

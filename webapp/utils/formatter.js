@@ -12,6 +12,7 @@ sap.ui.define(["sap/ui/core/format/DateFormat"], function (DateFormat) {
                 REJ: "Rejected",
                 DRF: "Draft",
                 INI: "Initiated",
+                CFR: "Clarification Required"
             };
             return oMap[sStatus] || sStatus || "";
         },
